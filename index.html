@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Reich - Arts</title>
 <style>
     body {
@@ -14,26 +15,19 @@
         height: 100vh;
         overflow: hidden;
         font-family: Arial, sans-serif;
-    }
-
-    .container {
-        position: relative;
-        text-align: center;
         color: white;
+        flex-direction: column;
     }
-
     img {
         width: 400px;
         border-radius: 15px;
         box-shadow: 0 0 40px rgba(0, 150, 255, 0.8);
         animation: glow 3s infinite alternate;
     }
-
     @keyframes glow {
         from { box-shadow: 0 0 20px rgba(0, 150, 255, 0.6); }
         to { box-shadow: 0 0 60px rgba(0, 200, 255, 1); }
     }
-
     h1 {
         margin-top: 20px;
         font-size: 4rem;
@@ -41,69 +35,14 @@
         text-shadow: 0 0 10px #00cfff, 0 0 20px #00cfff, 0 0 40px #00cfff;
         animation: pulse 2s infinite alternate;
     }
-
     @keyframes pulse {
         from { text-shadow: 0 0 10px #00cfff, 0 0 20px #00cfff; }
         to { text-shadow: 0 0 20px #00cfff, 0 0 40px #00cfff; }
     }
-
-    canvas {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-    }
 </style>
 </head>
 <body>
-<canvas id="particles"></canvas>
-<div class="container">
-    <img src="data:image/jpeg;base64,INSIRA_O_BASE64_DA_IMAGEM_AQUI" alt="Reich">
+    <img src="imagens/logo.png" alt="Reich" />
     <h1>REICH</h1>
-</div>
-
-<script>
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particles = [];
-for (let i = 0; i < 50; i++) {
-    particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 3 + 1,
-        speedX: Math.random() - 0.5,
-        speedY: Math.random() - 0.5
-    });
-}
-
-function drawParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#00cfff";
-    particles.forEach(p => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fill();
-    });
-}
-
-function moveParticles() {
-    particles.forEach(p => {
-        p.x += p.speedX;
-        p.y += p.speedY;
-        if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
-    });
-}
-
-function animate() {
-    drawParticles();
-    moveParticles();
-    requestAnimationFrame(animate);
-}
-animate();
-</script>
 </body>
 </html>
