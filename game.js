@@ -11,7 +11,7 @@ const player = {
     height: 60,
     color: '#f0a500',
     dy: 0,
-    gravity: 0.6,
+    gravity: 0.7,
     jumpPower: -15,
     onGround: false,
     moveLeft: false,
@@ -19,58 +19,34 @@ const player = {
     score: 0
 };
 
-// Plataformas
+// Plataformas de parkour
 let platforms = [
-    {x:0, y:760, width:600, height:40, color:'#444'}, 
+    {x:0, y:760, width:600, height:40, color:'#444'},
     {x:50, y:680, width:100, height:20, color:'#777'},
     {x:200, y:600, width:100, height:20, color:'#777'},
     {x:350, y:520, width:100, height:20, color:'#777'},
     {x:150, y:440, width:100, height:20, color:'#777'},
-    {x:300, y:360, width:100, height:20, color:'#777'}
+    {x:300, y:360, width:100, height:20, color:'#777'},
+    {x:100, y:280, width:120, height:20, color:'#777'},
+    {x:250, y:200, width:120, height:20, color:'#777'}
 ];
 
-// Inimigos
+// Obstáculos inimigos
 let enemies = [
     {x:150, y:640, width:40, height:40, color:'#ff0000', dx:2},
-    {x:400, y:500, width:40, height:40, color:'#ff0000', dx:-2}
+    {x:400, y:500, width:40, height:40, color:'#ff0000', dx:-2},
+    {x:200, y:360, width:40, height:40, color:'#ff0000', dx:2}
 ];
 
-// Itens coletáveis
+// Itens colecionáveis
 let items = [
     {x:70, y:640, width:20, height:20, color:'#00ff00', collected:false},
     {x:220, y:560, width:20, height:20, color:'#00ff00', collected:false},
     {x:370, y:480, width:20, height:20, color:'#00ff00', collected:false},
     {x:170, y:400, width:20, height:20, color:'#00ff00', collected:false},
-    {x:320, y:320, width:20, height:20, color:'#00ff00', collected:false}
+    {x:320, y:320, width:20, height:20, color:'#00ff00', collected:false},
+    {x:150, y:220, width:20, height:20, color:'#00ff00', collected:false}
 ];
-
-// Tempo
-let times = ['Passado','Presente','Futuro'];
-let currentTime = 1;
-const timeButton = document.getElementById('timeButton');
-const timeLabel = document.getElementById('timeLabel');
-const scoreLabel = document.getElementById('scoreLabel');
-
-timeButton.addEventListener('click', () => {
-    currentTime = (currentTime + 1) % 3;
-    timeLabel.textContent = 'Tempo: ' + times[currentTime];
-
-    // Alterar plataformas dependendo do tempo
-    switch(currentTime){
-        case 0:
-            platforms[1].color = '#228B22';
-            platforms[2].color = '#8B4513';
-            break;
-        case 1:
-            platforms[1].color = '#777';
-            platforms[2].color = '#777';
-            break;
-        case 2:
-            platforms[1].color = '#00FFFF';
-            platforms[2].color = '#00FFFF';
-            break;
-    }
-});
 
 // Controles teclado
 let keys = {};
@@ -136,7 +112,7 @@ function gameLoop(){
            player.y + player.height > item.y){
                item.collected = true;
                player.score++;
-               scoreLabel.textContent = 'Itens: ' + player.score;
+               document.getElementById('scoreLabel').textContent = 'Pontos: ' + player.score;
         }
     });
 
@@ -154,7 +130,7 @@ function gameLoop(){
                player.dy = 0;
                player.score = 0;
                items.forEach(i=>i.collected=false);
-               scoreLabel.textContent = 'Itens: 0';
+               document.getElementById('scoreLabel').textContent = 'Pontos: 0';
         }
     });
 
@@ -164,7 +140,7 @@ function gameLoop(){
         ctx.fillRect(p.x,p.y,p.width,p.height);
     });
 
-    // Desenhar itens com efeito piscante
+    // Desenhar itens piscando
     items.forEach(i=>{
         if(!i.collected){
             ctx.fillStyle = (Math.floor(Date.now()/200) % 2 === 0) ? i.color : '#ffffff';
