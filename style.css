@@ -82,6 +82,12 @@ nav ul li a:hover {
   color: #121212;
 }
 
+.hero-img {
+  margin-top: 20px;
+  max-width: 100%;
+  border-radius: 10px;
+}
+
 /* Serviços */
 .services {
   padding: 80px 20px;
@@ -110,6 +116,66 @@ nav ul li a:hover {
 .card:hover {
   background-color: #00ffcc;
   color: #121212;
+}
+
+.card img {
+  max-width: 100px;
+  margin-top: 15px;
+}
+
+/* Seção Bypass */
+.bypass {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: #1a1a1a;
+}
+
+.bypass h2 {
+  margin-bottom: 20px;
+}
+
+.bypass input {
+  padding: 10px;
+  width: 250px;
+  border-radius: 5px;
+  border: none;
+  margin-right: 10px;
+}
+
+.bypass button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #00ffcc;
+  color: #121212;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.bypass button:hover {
+  background-color: #0066ff;
+  color: #fff;
+}
+
+/* Seção Discord */
+.discord {
+  padding: 80px 20px;
+  text-align: center;
+  background-color: #121212;
+}
+
+.discord a {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.discord-img {
+  width: 120px;
+  transition: 0.3s;
+}
+
+.discord-img:hover {
+  transform: scale(1.1);
 }
 
 /* Contato */
@@ -171,5 +237,14 @@ footer {
   .service-cards {
     flex-direction: column;
     align-items: center;
+  }
+
+  .bypass input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .bypass button {
+    width: 100%;
   }
 }
