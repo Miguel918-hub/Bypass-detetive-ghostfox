@@ -1,82 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChronoRift - Mundo de Eryndor</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChronoRift - Jogo Interativo</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>ChronoRift</h1>
-        <p>Restaure a linha temporal e salve Eryndor</p>
-    </header>
+<div id="game-container">
+    <canvas id="game"></canvas>
 
-    <nav>
-        <button onclick="showSection('world')">Mundo</button>
-        <button onclick="showSection('characters')">Personagens</button>
-        <button onclick="showSection('enemies')">Inimigos</button>
-        <button onclick="showSection('mechanics')">Mecânicas</button>
-        <button onclick="showSection('levels')">Fases & Puzzles</button>
-    </nav>
+    <!-- HUD -->
+    <div id="hud">
+        <button id="timeButton">Mudar Tempo</button>
+        <p id="timeLabel">Tempo: Presente</p>
+        <p id="scoreLabel">Itens: 0</p>
+    </div>
 
-    <main>
-        <section id="world" class="active">
-            <h2>Mundo de Eryndor</h2>
-            <p><strong>Situação inicial:</strong> Um experimento de manipulação temporal causado por um grupo chamado “Os Arquitetos do Tempo” deu errado. O mundo se fragmentou em diferentes eras sobrepostas.</p>
-            <p><strong>Objetivo do jogador:</strong> Restaurar a linha temporal, impedir que Eryndor caia no caos e decidir o destino dos personagens que encontrou.</p>
-            <h3>Linha do tempo principal:</h3>
-            <ul>
-                <li><strong>Passado:</strong> Ruínas e florestas antigas, tribos antigas. Muitas ações aqui afetam o presente.</li>
-                <li><strong>Presente:</strong> Cidade futurista parcialmente destruída e selvagens sobrevivendo entre fendas temporais.</li>
-                <li><strong>Futuro:</strong> Mundo devastado ou altamente tecnológico dependendo das escolhas do jogador.</li>
-            </ul>
-        </section>
+    <!-- Controles mobile -->
+    <div id="controls">
+        <button id="leftBtn">◀️</button>
+        <button id="jumpBtn">⛶</button>
+        <button id="rightBtn">▶️</button>
+    </div>
+</div>
 
-        <section id="characters">
-            <h2>Personagens Principais</h2>
-            <ul>
-                <li><strong>Guardião do Tempo (Jogador):</strong> Viaja entre linhas temporais, manipula objetos temporais e evolui suas habilidades.</li>
-                <li><strong>Lyra:</strong> Inventora do presente, cria gadgets temporais como pontes e drones.</li>
-                <li><strong>Kael:</strong> Guerreiro do passado, ajuda em combates e desbloqueia novas áreas.</li>
-                <li><strong>Veylan (Antagonista):</strong> Ex-Arquiteto do Tempo, cria paradoxos e tenta dominar todas as linhas temporais.</li>
-            </ul>
-        </section>
-
-        <section id="enemies">
-            <h2>Inimigos e Desafios</h2>
-            <ul>
-                <li><strong>Guardiões Temporais:</strong> Mudam de forma dependendo da linha temporal (ex.: dragão no passado, robô no futuro).</li>
-                <li><strong>Paradoxos:</strong> Armadilhas que surgem quando o jogador altera demais o tempo.</li>
-                <li><strong>Inimigos humanos:</strong> Saqueadores, bandidos e soldados adaptativos.</li>
-            </ul>
-        </section>
-
-        <section id="mechanics">
-            <h2>Mecânicas de Jogo</h2>
-            <ul>
-                <li><strong>Viagem temporal:</strong> Alterna entre passado, presente e futuro, afetando objetos e inimigos.</li>
-                <li><strong>Combate estratégico:</strong> Ataques físicos e mágicos com manipulação temporal, sistema de stamina/energia.</li>
-                <li><strong>Puzzles temporais:</strong> Resolver obstáculos manipulando o tempo, como mover pedras no passado para desbloquear caminhos.</li>
-                <li><strong>Crafting e melhorias:</strong> Criação de itens com recursos de diferentes eras.</li>
-                <li><strong>Escolhas e consequências:</strong> Decisões alteram a linha temporal, afetando personagens e finais.</li>
-            </ul>
-        </section>
-
-        <section id="levels">
-            <h2>Exemplos de Fases & Puzzles</h2>
-            <ul>
-                <li><strong>Floresta do Passado:</strong> Salvar tribos e criar caminhos/escudos naturais.</li>
-                <li><strong>Cidade do Presente:</strong> Impedir saqueadores de destruir o laboratório de Lyra, usar gadgets temporais.</li>
-                <li><strong>Ruínas Futuras:</strong> Derrotar Veylan, manipular máquinas do futuro com ações passadas.</li>
-            </ul>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 ChronoRift - Eryndor</p>
-    </footer>
-
-    <script src="script.js"></script>
+<script src="game.js"></script>
 </body>
 </html>
