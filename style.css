@@ -30,15 +30,14 @@ canvas {
     top: 10px;
     left: 10px;
     color: #fff;
+    z-index: 10;
 }
 
 #credits {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
     font-size: 14px;
     color: #aaa;
     line-height: 1.2;
+    margin-top: 5px;
 }
 
 #pauseBtn {
@@ -52,6 +51,7 @@ canvas {
     font-size: 24px;
     background-color: rgba(255,255,255,0.25);
     color: #fff;
+    z-index: 10;
 }
 
 #pauseBtn:active {
@@ -67,6 +67,7 @@ canvas {
     justify-content: space-between;
     padding: 0 20px;
     box-sizing: border-box;
+    z-index: 10;
 }
 
 #controls button {
