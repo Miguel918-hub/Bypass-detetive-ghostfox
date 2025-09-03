@@ -1,4 +1,4 @@
-// Função para scroll suave para qualquer seção
+// Scroll suave para seções
 function scrollToSection(sectionId) {
   const section = document.getElementById(sectionId);
   if (section) {
@@ -6,22 +6,45 @@ function scrollToSection(sectionId) {
   }
 }
 
-// Envio de formulário simulado
-const form = document.getElementById('contactForm');
+// Envio de formulário de contato
+const contactForm = document.getElementById('contactForm');
 const formMessage = document.getElementById('formMessage');
 
-form.addEventListener('submit', function(event) {
-  event.preventDefault(); // Impede envio real
+contactForm.addEventListener('submit', function(event) {
+  event.preventDefault(); // Evita envio real
 
-  // Mostra mensagem de sucesso
+  // Mensagem de sucesso
   formMessage.style.color = '#00ffcc';
   formMessage.textContent = 'Mensagem enviada com sucesso!';
 
   // Limpa o formulário
-  form.reset();
+  contactForm.reset();
 
-  // Remove a mensagem após 5 segundos
+  // Remove mensagem após 5 segundos
   setTimeout(() => {
     formMessage.textContent = '';
   }, 5000);
+});
+
+// Envio do formulário Bypass (encurtador)
+const bypassForm = document.getElementById('bypassForm');
+const bypassMessage = document.getElementById('bypassMessage');
+
+bypassForm.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const link = document.getElementById('shortLink').value;
+  if (link) {
+    bypassMessage.style.color = '#00ffcc';
+    bypassMessage.textContent = `Link processado com sucesso: ${link}`;
+    bypassForm.reset();
+
+    // Remove mensagem após 5 segundos
+    setTimeout(() => {
+      bypassMessage.textContent = '';
+    }, 5000);
+  } else {
+    bypassMessage.style.color = '#ff4d4d';
+    bypassMessage.textContent = 'Por favor, insira um link válido.';
+  }
 });
