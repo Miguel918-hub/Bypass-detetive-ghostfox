@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bypass Detet</title>
-  <!-- Link para o CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,6 +18,8 @@
       <ul>
         <li><a href="#home">Início</a></li>
         <li><a href="#services">Serviços</a></li>
+        <li><a href="#bypass">Bypass</a></li>
+        <li><a href="#discord">Discord</a></li>
         <li><a href="#contact">Contato</a></li>
       </ul>
     </nav>
@@ -29,6 +30,7 @@
     <h2>Bem-vindo ao Bypass Detet</h2>
     <p>Soluções modernas para desbloqueio e análise de sistemas.</p>
     <button onclick="scrollToSection('services')">Saiba Mais</button>
+    <img src="images/hero-image.png" alt="Hero Image" class="hero-img">
   </section>
 
   <!-- Seção Serviços -->
@@ -38,16 +40,39 @@
       <div class="card">
         <h3>Desbloqueio</h3>
         <p>Ferramentas seguras e rápidas para desbloqueios eficientes.</p>
+        <img src="images/unlock.png" alt="Desbloqueio">
       </div>
       <div class="card">
         <h3>Monitoramento</h3>
         <p>Acompanhe suas operações em tempo real com segurança total.</p>
+        <img src="images/monitor.png" alt="Monitoramento">
       </div>
       <div class="card">
         <h3>Suporte</h3>
         <p>Equipe pronta para te ajudar a qualquer momento.</p>
+        <img src="images/support.png" alt="Suporte">
       </div>
     </div>
+  </section>
+
+  <!-- Seção Bypass -->
+  <section id="bypass" class="bypass">
+    <h2>Use o Bypass</h2>
+    <p>Insira seu link do encurtador abaixo:</p>
+    <form id="bypassForm">
+      <input type="url" id="shortLink" placeholder="Cole seu link aqui" required>
+      <button type="submit">Usar Bypass</button>
+    </form>
+    <p id="bypassMessage"></p>
+  </section>
+
+  <!-- Seção Discord -->
+  <section id="discord" class="discord">
+    <h2>Nosso Discord</h2>
+    <p>Entre no nosso servidor para suporte e novidades:</p>
+    <a href="https://discord.gg/seu-link" target="_blank">
+      <img src="images/discord.png" alt="Discord" class="discord-img">
+    </a>
   </section>
 
   <!-- Seção Contato -->
@@ -67,7 +92,22 @@
     <p>© 2025 Bypass Detet. Todos os direitos reservados.</p>
   </footer>
 
-  <!-- Script JS -->
+  <!-- Scripts -->
   <script src="script.js"></script>
+  <script>
+    // Função Bypass simulada
+    const bypassForm = document.getElementById('bypassForm');
+    const bypassMessage = document.getElementById('bypassMessage');
+
+    bypassForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const link = document.getElementById('shortLink').value;
+      bypassMessage.style.color = '#00ffcc';
+      bypassMessage.textContent = `Link processado com sucesso: ${link}`;
+      bypassForm.reset();
+      setTimeout(() => bypassMessage.textContent = '', 5000);
+    });
+  </script>
+
 </body>
 </html>
