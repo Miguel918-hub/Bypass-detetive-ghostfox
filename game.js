@@ -19,7 +19,7 @@ const player = {
     score: 0
 };
 
-// Plataformas alcançáveis
+// Plataformas escalonadas (alturas ajustadas para o pulo)
 let platforms = [
     {x:0, y:760, width:600, height:40, color:'#444'},
     {x:50, y:700, width:100, height:20, color:'#777'},
@@ -40,7 +40,7 @@ let enemies = [
     {x:200, y:360, width:40, height:40, color:'#ff0000', dx:2}
 ];
 
-// Itens
+// Itens colecionáveis
 let items = [
     {x:70, y:640, width:20, height:20, color:'#00ff00', collected:false},
     {x:220, y:560, width:20, height:20, color:'#00ff00', collected:false},
@@ -132,31 +132,4 @@ function gameLoop(){
                    player.y = 700;
                    player.dy = 0;
                    player.score = 0;
-                   items.forEach(i=>i.collected=false);
-                   document.getElementById('scoreLabel').textContent = 'Pontos: 0';
-            }
-        });
-
-        // Desenhar plataformas
-        platforms.forEach(p=>{ ctx.fillStyle=p.color; ctx.fillRect(p.x,p.y,p.width,p.height); });
-
-        // Desenhar itens piscando
-        items.forEach(i=>{
-            if(!i.collected){
-                ctx.fillStyle = (Math.floor(Date.now()/200) % 2 === 0) ? i.color : '#ffffff';
-                ctx.fillRect(i.x,i.y,i.width,i.height);
-            }
-        });
-
-        // Desenhar inimigos
-        enemies.forEach(e=>{ ctx.fillStyle=e.color; ctx.fillRect(e.x,e.y,e.width,e.height); });
-
-        // Desenhar jogador
-        ctx.fillStyle = player.color;
-        ctx.fillRect(player.x,player.y,player.width,player.height);
-    }
-
-    requestAnimationFrame(gameLoop);
-}
-
-gameLoop();
+                   items.forEach(i=>i.collected=false
