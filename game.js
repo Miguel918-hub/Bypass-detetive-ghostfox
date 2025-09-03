@@ -19,7 +19,7 @@ const player = {
     score: 0
 };
 
-// Plataformas de parkour
+// Plataformas escalonadas e alcançáveis
 let platforms = [
     {x:0, y:760, width:600, height:40, color:'#444'},
     {x:50, y:680, width:100, height:20, color:'#777'},
@@ -31,7 +31,7 @@ let platforms = [
     {x:250, y:200, width:120, height:20, color:'#777'}
 ];
 
-// Obstáculos inimigos
+// Inimigos posicionados de forma justa
 let enemies = [
     {x:150, y:640, width:40, height:40, color:'#ff0000', dx:2},
     {x:400, y:500, width:40, height:40, color:'#ff0000', dx:-2},
@@ -161,4 +161,4 @@ function gameLoop(){
     requestAnimationFrame(gameLoop);
 }
 
-gameLoop();
+gameLoop
