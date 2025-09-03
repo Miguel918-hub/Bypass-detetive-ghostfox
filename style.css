@@ -32,17 +32,13 @@ canvas {
     color: #fff;
 }
 
-#hud button {
-    padding: 10px 15px;
-    margin-bottom: 5px;
-    background-color: #444;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-}
-
-#hud button:active {
-    background-color: #666;
+#credits {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 14px;
+    color: #aaa;
+    line-height: 1.2;
 }
 
 /* Controles mobile */
