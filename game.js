@@ -76,11 +76,15 @@ const leftBtn = document.getElementById('leftBtn');
 const rightBtn = document.getElementById('rightBtn');
 const jumpBtn = document.getElementById('jumpBtn');
 
-leftBtn.addEventListener('touchstart', ()=>player.moveLeft=true);
-leftBtn.addEventListener('touchend', ()=>player.moveLeft=false);
-rightBtn.addEventListener('touchstart', ()=>player.moveRight=true);
-rightBtn.addEventListener('touchend', ()=>player.moveRight=false);
-jumpBtn.addEventListener('touchstart', ()=>{
+// Eventos mobile corrigidos
+leftBtn.addEventListener('touchstart', e=>{ e.preventDefault(); player.moveLeft=true; });
+leftBtn.addEventListener('touchend', e=>{ e.preventDefault(); player.moveLeft=false; });
+
+rightBtn.addEventListener('touchstart', e=>{ e.preventDefault(); player.moveRight=true; });
+rightBtn.addEventListener('touchend', e=>{ e.preventDefault(); player.moveRight=false; });
+
+jumpBtn.addEventListener('touchstart', e=>{
+    e.preventDefault();
     if(player.onGround){
         player.dy = player.jumpPower;
         player.onGround = false;
@@ -132,9 +136,7 @@ function gameLoop(){
     // Movimento inimigos
     enemies.forEach(e=>{
         e.x += e.dx;
-        // Colisão com paredes
         if(e.x < 0 || e.x + e.width > canvas.width) e.dx *= -1;
-        // Colisão com jogador
         if(player.x < e.x + e.width &&
            player.x + player.width > e.x &&
            player.y < e.y + e.height &&
