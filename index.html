@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bypass Detet</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="images/logo.png" alt="Bypass Detet Logo">
+      <h1>Bypass Detet</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#home">Início</a></li>
+        <li><a href="#services">Serviços</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h2>Bem-vindo ao Bypass Detet</h2>
+    <p>Soluções modernas para desbloqueio e análise de sistemas.</p>
+    <button onclick="scrollToSection('services')">Saiba Mais</button>
+  </section>
+
+  <section id="services" class="services">
+    <h2>Nossos Serviços</h2>
+    <div class="service-cards">
+      <div class="card">
+        <h3>Desbloqueio</h3>
+        <p>Ferramentas seguras e rápidas para desbloqueios eficientes.</p>
+      </div>
+      <div class="card">
+        <h3>Monitoramento</h3>
+        <p>Acompanhe suas operações em tempo real com segurança total.</p>
+      </div>
+      <div class="card">
+        <h3>Suporte</h3>
+        <p>Equipe pronta para te ajudar a qualquer momento.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Fale Conosco</h2>
+    <form id="contactForm">
+      <input type="text" name="name" placeholder="Seu Nome" required>
+      <input type="email" name="email" placeholder="Seu Email" required>
+      <textarea name="message" placeholder="Sua Mensagem" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+    <p id="formMessage"></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Bypass Detet. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
