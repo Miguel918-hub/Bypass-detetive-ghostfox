@@ -1,34 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ChronoParkour - Jogo Mobile</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corre Doggo! 🐶🦴</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="game-container">
-    <canvas id="game"></canvas>
+    <div id="game-container">
+        <h1>Corre Doggo! 🐶🦴</h1>
+        <p id="creators">Criadores: Projeto Escolar - Laura e Miguel - Turma 53</p>
 
-    <!-- HUD -->
-    <div id="hud">
-        <p id="scoreLabel">Pontos: 0</p>
-        <p id="credits">
-            Estudante: Miguel<br>
-            Turma: 53<br>
-            Série: 5º
-        </p>
-        <button id="pauseBtn">⏸️</button>
+        <!-- Seleção de dispositivo -->
+        <div id="device-selection">
+            <h2>Escolha seu dispositivo</h2>
+            <button id="computer-btn">Computador 💻</button>
+            <button id="mobile-btn">Celular 📱</button>
+        </div>
+
+        <!-- Botão iniciar -->
+        <button id="start-btn" style="display:none;">Jogar</button>
+
+        <!-- Tela do jogo -->
+        <div id="game" style="display:none;">
+            <div id="score">Pontuação: 0</div>
+            <div id="timer">Tempo: 30</div>
+            <div id="dog"></div>
+        </div>
+
+        <!-- Tela de fim de jogo -->
+        <div id="game-over" style="display:none;">
+            <h2>Fim de jogo!</h2>
+            <p id="final-score"></p>
+            <button id="restart-btn">Reiniciar</button>
+        </div>
     </div>
 
-    <!-- Controles mobile -->
-    <div id="controls">
-        <button id="leftBtn">◀️</button>
-        <button id="jumpBtn">⛶</button>
-        <button id="rightBtn">▶️</button>
-    </div>
-</div>
-
-<script src="game.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
